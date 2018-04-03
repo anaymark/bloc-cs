@@ -6,26 +6,68 @@ let arr = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
 ```
 * b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
 ```
-arr.push["Mike"];
+arr[arr.length] = "Mary";
 ```
 * c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
 ```
-arr.indexOf("Josh");
+function findName(arr, name)
+{
+  var name;
+    for(var val in arr){
+	  if(arr[val] === name){
+	    index = val;
+		return index;
+		}
+	}
+	return "Does not exist";
+};
 ```
 * d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
 ```
-arr.indexOf("Emily");
--1
+function findName(arr, name)
+{
+  var name;
+    for(var val in arr){
+	  if(arr[val] === name){
+	    index = val;
+		return index;
+		}
+	}
+	return "Does not exist";
+};
 
--1 since it does not exist.
 ```
+* The function will return an undefined if you do not define what should occur in the case the name we are looking for does not exist. In my case I set up a return statement of "Does not exist" to let the user know this name doesn't exist in the array.
+
 * e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
 ```
-arr.splice(arr.indexOf("Ava"),0,"Melissa");
+function addFriend(line, myPosition, friend){
+  if(Array.isArray(line) && myPosition !== (undefined || null) && myPosition >= 0 && typeof friend === "string"){
+    Array.prototype.insert = function ( myPosition, friend ) {
+      this.splice( myPosition, 0, friend );
+    };
+    line.insert(myPosition, friend);
+  }
+  else {
+	return "Please make sure the parameters are correct values and your friend is a string. ;)"
+  }
+};
+
 ```
 * f) If Patrick wants to leave the line, how would you delete him from the array?
 ```
-arr.splice(arr.indexOf("Patrick"),1);
+function leaveLine(line, myPosition, myName){
+  if(Array.isArray(line) && myPosition >= 0 && myPosition !== (undefined || null) && line[myPosition] == myName){
+  	Array.prototype.remove = function ( myPosition, num ) {
+      this.splice( myPosition, 1 );
+    };
+    line.remove(myPosition, 1 )
+  }
+  else {
+	return "Please make sure your position in line is correct and this position reflects your name."
+  }
+}
+
 ```
 
 # Provide another real-world example that you can model using a data structure.
