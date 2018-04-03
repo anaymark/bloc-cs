@@ -3,38 +3,55 @@
 * a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
 ```
 let arr = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
 ```
 * b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
 ```
-arr[arr.length] = "Mary";
+function spotInLine(myName){
+  if( (typeof myName != "undefined") &&
+     (typeof myName.valueOf() == "string") &&
+    (myName.length > 0)) {
+    arr[arr.length] = myName;
+  }
+  else {
+    return "Enter a valid name!"
+  }
+};
+
+spotInLine("Marry");
+
 ```
 * c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
 ```
-function findName(arr, name)
+function findLinePosition(arr, nameLookUp)
 {
   var name;
     for(var val in arr){
-	  if(arr[val] === name){
+	  if((arr[val].toLowerCase() == nameLookUp.toLowerCase()) && (typeof nameLookUp != "undefined") && (typeof nameLookUp.valueOf() == "string") && (nameLookUp.length > 0)){
 	    index = val;
 		return index;
 		}
 	}
-	return "Does not exist";
+	return "Does not exist, get in Line!";
 };
+
+findLinePosition(arr, "Josh");
 ```
 * d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
 ```
-function findName(arr, name)
+function findPersonInLine(arr, name)
 {
   var name;
     for(var val in arr){
-	  if(arr[val] === name){
+	  if((arr[val].toLowerCase() === name.toLowerCase()) && (typeof name != "undefined") && (typeof name.valueOf() == "string") && (name.length > 0)){
 	    index = val;
 		return index;
 		}
 	}
-	return "Does not exist";
+	return "This person is not here in line.";
 };
+
+findPersonInLine(arr, "Emily");
 
 ```
 * The function will return an undefined if you do not define what should occur in the case the name we are looking for does not exist. In my case I set up a return statement of "Does not exist" to let the user know this name doesn't exist in the array.
@@ -66,7 +83,7 @@ function leaveLine(line, myPosition, myName){
   else {
 	return "Please make sure your position in line is correct and this position reflects your name."
   }
-}
+};
 
 ```
 
