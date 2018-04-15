@@ -25,39 +25,20 @@
 # Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
 
 ```
-FUNCTION numberOfElements(arr, index)
-  SET index = 0;
-  IF arr at index + 1
-    RETURN numberOfElements(arr, index + 1)
-  END IF
-  ELSE IF index is equal to 0
-    RETURN 0
-  END ELSE IF
-  ELSE
-    RETURN index + 1
-  END
+Array.prototype.getLength = function() {
+  let sum = 0;
+  for (let count = 0; count < this.length; count ++) {
+    sum += this[count].length ? this[count].getLength()+1 : 1;
+  }
+  return sum;
+}; 
 ```
 
 
 ```
-function numberOfElements(arr,index){
-  var index = index || 0;
-
-  if(array[index+1])
-  {
-  	return numberOfElements(arr, index + 1);
-  }
-  else if (index === 0){
-    return 0;
-  }
-  else{
-    return index + 1;
-  }
-};
-
-array = [1,2,3,4,5,6];
-numberOfElements(array);
-->6
+var arr = [1,2,3,4,5,6,[1,2,3,4,5],[1,2,3,4]];
+arr.getLength();
+->17
 ```
 
 
