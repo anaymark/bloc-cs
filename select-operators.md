@@ -42,21 +42,21 @@ psql -f ./Desktop/dogs.sql pets dangerzone
 
  * SELECT name, adoption_date FROM cats;
 ```
- name		adoption_date
- Mushi		2016-03-22
+ name   adoption_date
+ Mushi    2016-03-22
  Seashell
- Azul		2016-04-17
- Victoire	2016-09-01
- Nala	
+ Azul   2016-04-17
+ Victoire 2016-09-01
+ Nala 
 ```
  * SELECT name, age FROM cats;
 ```
-name		age	
-Mushi		1	
-Seashell.   7	
-Azul		3	
-Victoire	7	
-Nala		1	
+name    age 
+Mushi   1 
+Seashell.   7 
+Azul    3 
+Victoire  7 
+Nala    1 
 ```
 
 # From the cats table, write queries to select the following pieces of data.
@@ -91,6 +91,7 @@ Nala		1
 
 
 # From the cats table below, what data would be returned from these queries?
+```
  * SELECT name FROM cats WHERE gender = ‘F’;
 ```
 name   
@@ -109,16 +110,20 @@ Nala
  Nala
 ```
  * SELECT ID FROM cats WHERE name != ‘Mushi’ AND gender = ‘M’;
+
 ```
+
  id 
 ----
   3
   4
-```
 
-id		name		gender	age	intake_date	adoption_date
-00001	Mushi		M		1	2016-01-09	2016-03-22
-00002	Seashell	F		7	2016-01-09	
-00003	Azul		M		3	2016-01-11	2016-04-17
-00004	Victoire	M		7	2016-01-11	2016-09-01
-00005	Nala		F		1	2016-01-12
+```
+```
+id    name    gender  age intake_date adoption_date
+00001 Mushi   M   1 2016-01-09  2016-03-22
+00002 Seashell  F   7 2016-01-09  
+00003 Azul    M   3 2016-01-11  2016-04-17
+00004 Victoire  M   7 2016-01-11  2016-09-01
+00005 Nala    F   1 2016-01-12
+```
